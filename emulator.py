@@ -19,9 +19,9 @@ class ClassEmulator:
             Any additional parameters to store and use in target_class's functions.
         """
         self.__target_class = target_class
-        self.set_default_params(**kwargs)
+        self.save_params(**kwargs)
 
-    def set_default_params(self, **kwargs):
+    def save_params(self, **kwargs):
         """
         Stores any parameter you may want to pass into functions as class attributes.
 
