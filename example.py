@@ -22,7 +22,7 @@ print(
 print(emulated_dumps_output)
 print("")
 
-json_emulator_with_indent.set_default_params(
+json_emulator_with_indent.save_params(
     garbage_parameter="I will break your code!"
 )
 emulated_dumps_output = json_emulator_with_indent.dumps(data_to_print)
