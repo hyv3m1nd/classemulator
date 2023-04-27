@@ -1,5 +1,5 @@
 # Class Emulator
-This project seeks to cause object-like behavior in non-OOP libraries or enhance encapsulation in objects.  
+This project seeks to cause object-like behavior in non-OOP libraries or enhance encapsulation in objects by hiding function parameters when it's repetitive.  
 It can emulate classes or objects.  
 
 ## Example
@@ -34,7 +34,7 @@ No outside library is required.
 ## Back Story
 A year ago, I joined a team that has been developing and using its own library for router testing for years.  
 The library is extensive (8000+ lines per file), covers several scenarios, and bug-free.  
-However, it is poorly documented and designed from an OOP perspective. Most function parameters are named "args", "script_args", "module_args", etc. Each parameter is a dictionary with no explanation; and many parameters are not meant to be changed by end users but are nonetheless repeatedly passed into functions.  
-That is to say, the library is powerful but difficult and very distracting to use. The team wishes to continue using it.  
-I designed classemulator to help me focus on the function arguments that matter and stop passing the same redundant arguments into every function.  
+That is to say, the library is vetted through years of use to handle complex tasks well. It is also massive and tightly coupled with the data it manages. This makes it impractical to re-design the entire library.  
+However, it is poorly designed and documented. Of note, functions repetitively call the same parameters that the end user does not edit. This makes it very distracting to use.   
+I designed classemulator to hide redundant arguments that belong in OOP and help me focus on the function arguments that matter.  
 
