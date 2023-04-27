@@ -1,5 +1,5 @@
 # Class Emulator
-This project seeks to cause object-like behavior in non-OOP libraries or enhance encapsulation in objects by hiding function parameters when it's repetitive.  
+This project seeks to cause object-like behavior in non-OOP libraries or enhance polymorphism in objects by hiding any repetitive function parameter.  
 It can emulate classes or objects.  
 
 ## Example
