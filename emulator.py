@@ -50,7 +50,7 @@ class ClassEmulator:
             stored_parameters = {
                 key: value
                 for key, value in self.__dict__.items()
-                if key != "target_class"
+                if key != "_ClassEmulator__target_class"
             }
 
             parameters = {
