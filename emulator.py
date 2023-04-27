@@ -1,5 +1,5 @@
 """
-This class may be used to reduce the redundancy of any poorly written code that passes too many parameters into its functions.
+This class is used to cause object-like behavior in non-OOP libraries or objects that can benefit from enhanced abstraction.
 It saves any repetitive parameter in its attributes and passes it into any function that can accept them.
 @author Ben Hsieh
 """
