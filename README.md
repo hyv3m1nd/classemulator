@@ -24,7 +24,7 @@ print(emulated_dumps_output)
 ## Explanation
 The main class is emulator/ClassEmulator. It has 3 functions:  
     __init__(self, target_class, **kwargs): emulates the target class with any number of named function parameters.  
-    set_default_params(self, **kwargs): adds named function parameters.  
+    save_params(self, **kwargs): adds named function parameters.  
     __getattr__(self, name)(*args, **kwargs): allows you to call any function in the emulated class with any named and unnamed parameter.  
 
 ## Requirements
