@@ -45,13 +45,13 @@ class ClassEmulator:
             target_function_parameters = [
                 parameter
                 for i, parameter in enumerate(target_function.__code__.co_varnames)
-                if i > 0 or parameter != "obj"
+                if i > 0 or parameter != "obj" #TODO check if there are other cases where a non-parameter would be referenced 
             ]
 
             stored_parameters = {
                 key: value
                 for key, value in self.__dict__.items()
-                if key != "_ClassEmulator__target_class"
+                if key != "_ClassEmulator__target_class" #TODO make this more generic for inheritance, or discard altogether
             }
 
             parameters = {
