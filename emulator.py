@@ -16,9 +16,9 @@ class ClassEmulator:
         target_class: class or object
             The target to emulate. Can be anything with its own library of functions.
         **kwargs: any key=value
-            Any additional parameters to store and use in target_class's functions
+            Any additional parameters to store and use in target_class's functions.
         """
-        self.target_class = target_class
+        self.__target_class = target_class
         self.set_default_params(**kwargs)
 
     def set_default_params(self, **kwargs):
@@ -28,7 +28,7 @@ class ClassEmulator:
         Parameters
         ----------
         **kwargs: any key=value
-            Any parameter to store and use in target_class's functions
+            Any parameter to store and use in target_class's functions.
         """
         for key, value in kwargs.items():
             self.__setattr__(key, value)
@@ -37,8 +37,9 @@ class ClassEmulator:
         """
         Runs the named function with any stored applicable parameter and any parameter the user passes in.
         """
+
         def run_named_function(*args, **kwargs):
-            target_function = getattr(self.target_class, function_name)
+            target_function = getattr(self.__target_class, function_name)
 
             target_function_parameters = [
                 parameter
