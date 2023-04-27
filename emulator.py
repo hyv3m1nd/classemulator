@@ -18,7 +18,6 @@ class ClassEmulator:
         **kwargs: any key=value
             Any additional parameters to store and use in target_class's functions
         """
-        print(type(target_class))
         self.target_class = target_class
         self.set_default_params(**kwargs)
 
@@ -32,7 +31,6 @@ class ClassEmulator:
             Any parameter to store and use in target_class's functions
         """
         for key, value in kwargs.items():
-            print(f"self.{key} = {value}")
             self.__setattr__(key, value)
 
     def __getattr__(self, name):
