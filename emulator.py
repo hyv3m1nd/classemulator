@@ -33,10 +33,12 @@ class ClassEmulator:
         for key, value in kwargs.items():
             self.__setattr__(key, value)
 
-    def __getattr__(self, name):
-        # fakes any function from another class or object and prints out its accepted parameters beforehand
+    def __getattr__(self, function_name):
+        """
+        Runs the named function with any stored applicable parameter and any parameter the user passes in.
+        """
         def run_named_function(*args, **kwargs):
-            target_function = getattr(self.target_class, name)
+            target_function = getattr(self.target_class, function_name)
 
             target_function_parameters = [
                 parameter
