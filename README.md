@@ -33,8 +33,8 @@ No outside library is required.
 
 ## Back Story
 A year ago, I joined a team that has been developing and using its own library for router testing for years.  
-The library is extensive (8000+ lines per file) and covers several scenarios.  
-However, it is poorly documented and designed from an OOP perspective. All function parameters are named "args", "script_args", "module_args", etc. Each arg is a dictionary with no documentation; and many parameters are not meant to be changed by end users but are nonetheless repeatedly passed into functions.  
+The library is extensive (8000+ lines per file), covers several scenarios, and bug-free.  
+However, it is poorly documented and designed from an OOP perspective. Most function parameters are named "args", "script_args", "module_args", etc. Each parameter is a dictionary with no explanation; and many parameters are not meant to be changed by end users but are nonetheless repeatedly passed into functions.  
 That is to say, the library is powerful but difficult and very distracting to use. The team wishes to continue using it.  
 I designed classemulator to help me focus on the function arguments that matter and stop passing the same redundant arguments into every function.  
 
