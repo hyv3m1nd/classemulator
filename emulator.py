@@ -1,6 +1,7 @@
 """
-This class is used to cause object-like behavior in non-OOP libraries or enhance encapsulation in objects.  
-It saves any repetitive parameter in its attributes and passes it into any function that can accept them.  
+This class is used to cause object-like behavior in non-OOP libraries or enhance polymorphism in objects.  
+It does so by saving any repetitive parameter in its attributes and passing it into any function that can accept them.  
+For a demo, see example.py
 @author Ben Hsieh
 """
 import inspect
