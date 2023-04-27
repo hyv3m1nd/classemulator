@@ -16,7 +16,10 @@ emulated_dumps_output = json_emulator.dumps(data_to_print)
 print(emulated_dumps_output)  
 
 ## Example Output
-You will see a multiline representation of {"speaker": "Jonathan", "message": "Hello!"}. Sorry, still working on making this present properly in Github.  
+{  
+&emsp;&emsp;&emsp;&emsp;"speaker": "Jonathan",  
+&emsp;&emsp;&emsp;&emsp;"message": "Hello!"  
+}  
 
 ## Explanation
 The main class is emulator/ClassEmulator. It has 3 functions:  
