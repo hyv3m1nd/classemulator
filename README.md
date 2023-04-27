@@ -1,5 +1,5 @@
 # Class Emulator
-This simple class is used to reduce the redundancy of any poorly written code with repetitive function parameters.  
+This project seeks to cause object-like behavior in non-OOP libraries or enhance encapsulation in objects.  
 It can emulate classes or objects.  
 
 ## Example
