@@ -16,9 +16,9 @@ emulated_dumps_output = json_emulator.dumps(data_to_print)
 print(emulated_dumps_output)
 
 ## Example Output
-{
-    "speaker": "Jonathan",
-    "message": "Hello!"
+{\n
+    \t"speaker": "Jonathan",\n
+    \t"message": "Hello!"\n
 }
 
 ## Explanation
