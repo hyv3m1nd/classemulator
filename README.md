@@ -34,6 +34,6 @@ No outside library is required.
 
 ## Back Story
 I have been working with a team that develops and uses its own library for router testing. The library has been vetted for handling complex use cases throughout the years. It is also massive (8000+ lines per file) and tightly coupled with the data it manages. This makes it impractical to re-design the entire library.  
-However, it is poorly designed and documented. Of note, functions repetitively call the same parameters that the end user does not edit. This makes it very distracting to use.   
+However, it could use better OOP structuring. Of note, functions repetitively call the same parameters that the end user does not edit, distracting programmers.   
 I designed classemulator to hide redundant arguments that belong in OOP and help me focus on the function arguments that matter.  
 
