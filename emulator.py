@@ -20,6 +20,7 @@ class ClassEmulator:
             Any additional parameters to store and use in target_class's functions.
         """
         self.__target_class = target_class
+        self.__reference_objects = []
         self.save_params(**kwargs)
 
     def save_params(self, **kwargs):
@@ -34,6 +35,20 @@ class ClassEmulator:
         for key, value in kwargs.items():
             self.__setattr__(key, value)
 
+    def save_reference_object(self, reference_object, copy_attributes: bool=False) -> None:
+        """
+        Saves an object from which we can look up attributes.
+        Newer references' attributes will overwrite older references' attributes.
+        Self attributes will overwrite any reference object attributes.
+        If copy_attributes, the reference object's attributes are copied to self attributes, and the reference object is then discarded.
+        """
+        if copy_attributes:
+            reference_object_attributes = reference_object.__dict__
+            self.save_params(**reference_object_attributes)
+        
+        else:
+            self.__reference_objects.append(reference_object)
+            
     def __getattr__(self, function_name):
         """
         Runs the named function with any stored applicable parameter and any parameter the user passes in.
@@ -48,11 +63,13 @@ class ClassEmulator:
                 if i > 0 or parameter != "obj" #TODO check if there are other cases where a non-parameter would be referenced 
             ]
 
-            stored_parameters = {
-                key: value
-                for key, value in self.__dict__.items()
-                if key != "_ClassEmulator__target_class" #TODO make this more generic for inheritance, or discard altogether
-            }
+            stored_parameters = {}
+            for reference_object in self.__reference_objects:
+                for key, value in reference_object.__dict__.items():
+                    stored_parameters[key] = value
+            for key, value in self.__dict__.items():
+                if key != "_ClassEmulator__target_class": #TODO make this more generic for inheritance, or discard altogether
+                    stored_parameters[key] = value
 
             parameters = {
                 key: value
