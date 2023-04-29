@@ -28,6 +28,14 @@ The main class is emulator/ClassEmulator. It has 4 functions:
     **save_reference_object(self, reference_object, copy_attributes: bool)**: saves an object from which we can reference its attributes, or copies its attributes to our attributes list.  
     **\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: allows you to call any function in the emulated class with any named and unnamed parameter.  
 
+## Other files
+example.py: a functional example with explanations in the output.  
+simple_printer.py: a short script that allows example.py to showcase that an imported module may be emulated directly.  
+sste_common_emulator.py: a real-life inheritance example. Note that sste_common.py is proprietary and not provided here.  
+experimental_emulator.py: an early version of emulator.py, which contains documentations of other libraries and code that may be useful.  
+steps.py: a work in progress and a part of a broader plan to reimagine how my team uses the pyats testing framework. This is not directly related to classemulator.  
+emulator_test.py: a pyats test that combines classemulator, steps, and a singleton-facade together to refactor my team's testing framework.  
+
 ## Requirements
 This class is written in Python 3.9.13 or above. Backward compatibility with earlier versions may be possible but is not guaranteed.  
 No outside library is required.  
