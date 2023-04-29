@@ -33,7 +33,7 @@ This class is written in Python 3.9.13 or above. Backward compatibility with ear
 No outside library is required.  
 
 ## Back Story
-I have been working with a team that develops and uses its own library for router testing. The library has been vetted for handling complex use cases throughout the years. It is also massive (8000+ lines per file) and tightly coupled with the data it manages. This makes it impractical to re-design the entire library.  
-However, it could use better OOP structuring. Of note, functions repetitively call the same parameters that the end user does not edit, distracting programmers.   
+I have been working with a team that develops and uses its own library for router testing. The library has been vetted for handling complex use cases throughout the years. However, it could use better OOP structuring. Of note, functions repetitively call the same parameters that the end user does not edit, distracting programmers.  
+Unfortunately, it is impractical to redesign it, since it is also massive (8000+ lines per file) and tightly coupled with the data it manages.  
 I designed classemulator to hide redundant arguments that belong in OOP and help me focus on the function arguments that matter.  
 
