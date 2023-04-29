@@ -6,9 +6,8 @@ import json
 data_to_print = {"speaker": "Jonathan", "message": "Hello!"}
 
 print_emulator = ClassEmulator(simple_printer)
-print("We can emulate a python file that is imported directly and use its simple_print(data) function to get the results:")
+print("We can emulate a python file that is imported directly and use print_data(data) to get the results:")
 print_emulator.print_data(data_to_print)
-
 
 dumps_output_without_indent = json.dumps(data_to_print)
 print("By default, json.dumps(data) returns the following:")
