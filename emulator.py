@@ -35,7 +35,9 @@ class ClassEmulator:
         for key, value in kwargs.items():
             self.__setattr__(key, value)
 
-    def save_reference_object(self, reference_object, copy_attributes: bool=False) -> None:
+    def save_reference_object(
+        self, reference_object, copy_attributes: bool = False
+    ) -> None:
         """
         Saves an object from which we can look up attributes.
         Newer references' attributes will overwrite older references' attributes.
@@ -45,55 +47,63 @@ class ClassEmulator:
         if copy_attributes:
             reference_object_attributes = reference_object.__dict__
             self.save_params(**reference_object_attributes)
-        
+
         else:
             self.__reference_objects.append(reference_object)
-            
+
     def __getattr__(self, function_name):
         """
         Runs the named function with any stored applicable parameter and any parameter the user passes in.
         """
 
         def run_named_function(*args, **kwargs):
-            #identifies the target function
+            # identifies the target function
             target_function = getattr(self.__target_class, function_name)
 
-            #acquires all acceptable parameters for the target function
+            # acquires all acceptable parameters for the target function
             target_function_parameters = [
                 parameter
                 for i, parameter in enumerate(target_function.__code__.co_varnames)
-                if i > 0 or parameter != "obj" #TODO check if there are other cases where a non-parameter would be referenced 
+                if i > 0
+                or parameter
+                != "obj"  # TODO check if there are other cases where a non-parameter would be referenced
             ]
 
-            #acquires all stored parameters
+            # acquires all stored parameters
             stored_parameters = {}
             for reference_object in self.__reference_objects:
                 for key, value in reference_object.__dict__.items():
                     stored_parameters[key] = value
             for key, value in self.__dict__.items():
-                if key != f"_{self.__class__.__name__}__target_class":
+                if not any(
+                    key == reserved_name
+                    for reserved_name in [
+                        f"_{self.__class__.__name__}__target_class",
+                        f"_{self.__class__.__name__}__reference_objects",
+                    ]
+                ):
                     stored_parameters[key] = value
 
-            #finds all stored parameters parameters that are acceptable to the target function
+            # finds all stored parameters parameters that are acceptable to the target function
             named_parameters = {
                 key: value
                 for key, value in stored_parameters.items()
                 if "kwargs" in target_function_parameters
                 or key in target_function_parameters
             }
-            
-            #removes all stored parameters that overlap with kwargs
-            positional_parameters_used = target_function_parameters[:len(args)]
+
+            # removes all stored parameters that overlap with kwargs
+            positional_parameters_used = target_function_parameters[: len(args)]
             named_parameters = {
                 key: value
                 for key, value in stored_parameters.items()
                 if key not in positional_parameters_used
             }
 
-            #makes user input kwargs count
-            parameters.update(kwargs)
+            # makes user input kwargs count
+            named_parameters.update(kwargs)
 
-            #run the target function and return the output
-            return target_function(*args, **parameters)
+            # run the target function and return the output
+            return target_function(*args, **named_parameters)
 
         return run_named_function
