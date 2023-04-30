@@ -55,14 +55,17 @@ class ClassEmulator:
         """
 
         def run_named_function(*args, **kwargs):
+            #identifies the target function
             target_function = getattr(self.__target_class, function_name)
 
+            #acquires all acceptable parameters for the target function
             target_function_parameters = [
                 parameter
                 for i, parameter in enumerate(target_function.__code__.co_varnames)
                 if i > 0 or parameter != "obj" #TODO check if there are other cases where a non-parameter would be referenced 
             ]
 
+            #acquires all stored parameters
             stored_parameters = {}
             for reference_object in self.__reference_objects:
                 for key, value in reference_object.__dict__.items():
@@ -71,15 +74,26 @@ class ClassEmulator:
                 if key != "_ClassEmulator__target_class": #TODO make this more generic for inheritance, or discard altogether
                     stored_parameters[key] = value
 
-            parameters = {
+            #finds all stored parameters parameters that are acceptable to the target function
+            named_parameters = {
                 key: value
                 for key, value in stored_parameters.items()
                 if "kwargs" in target_function_parameters
                 or key in target_function_parameters
             }
+            
+            #removes all stored parameters that overlap with kwargs
+            positional_parameters_used = target_function_parameters[:len(args)]
+            named_parameters = {
+                key: value
+                for key, value in stored_parameters.items()
+                if key not in positional_parameters_used
+            }
 
+            #makes user input kwargs count
             parameters.update(kwargs)
 
+            #run the target function and return the output
             return target_function(*args, **parameters)
 
         return run_named_function
