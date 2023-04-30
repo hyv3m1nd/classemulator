@@ -71,7 +71,7 @@ class ClassEmulator:
                 for key, value in reference_object.__dict__.items():
                     stored_parameters[key] = value
             for key, value in self.__dict__.items():
-                if key != "_ClassEmulator__target_class": #TODO make this more generic for inheritance, or discard altogether
+                if key != f"_{self.__class__.__name__}__target_class":
                     stored_parameters[key] = value
 
             #finds all stored parameters parameters that are acceptable to the target function
