@@ -78,8 +78,8 @@ class ClassEmulator:
                 if not any(
                     key == reserved_name
                     for reserved_name in [
-                        f"_{self.__class__.__name__}__target_class",
-                        f"_{self.__class__.__name__}__reference_objects",
+                        "_ClassEmulator__target_class",
+                        "_ClassEmulator__reference_objects",
                     ]
                 ):
                     stored_parameters[key] = value
