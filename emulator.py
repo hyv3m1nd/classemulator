@@ -55,18 +55,15 @@ class ClassEmulator:
         """
         Runs the named function with any stored applicable parameter and any parameter the user passes in.
         """
-
         def run_named_function(*args, **kwargs):
             # identifies the target function
             target_function = getattr(self.__target_class, function_name)
 
-            # acquires all acceptable parameters for the target function
+            # identifies all parameters the target function uses
             target_function_parameters = [
                 parameter
                 for i, parameter in enumerate(target_function.__code__.co_varnames)
-                if i > 0
-                or parameter
-                != "obj"  # TODO check if there are other cases where a non-parameter would be referenced
+                if i > 0 or parameter != "obj"  # TODO check if other non-parameters could be referenced
             ]
 
             # acquires all stored parameters
