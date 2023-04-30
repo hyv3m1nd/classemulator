@@ -90,7 +90,10 @@ class ClassEmulator:
             }
 
             # removes all stored parameters that overlap with kwargs
-            positional_parameters_used = target_function_parameters[: len(args)]
+            number_of_positional_parameters = len(args)
+            if (is_class_method := self.__target_class.__name__ == target_function.__self__.__name__):
+                number_of_positional_parameters += 1
+            positional_parameters_used = target_function_parameters[:number_of_positional_parameters]
             named_parameters = {
                 key: value
                 for key, value in stored_parameters.items()
