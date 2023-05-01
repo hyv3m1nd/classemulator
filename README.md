@@ -22,18 +22,26 @@ print(emulated_dumps_output)
 }  
 
 ## Explanation
-The main class is **emulator/ClassEmulator**. It has 4 functions:  
-    **\_\_init\_\_(self, target_class, \*\*kwargs)**: emulates the target class with any number of named function parameters.  
-    **save_params(self, \*\*kwargs)**: adds named function parameters.  
-    **save_reference_object(self, reference_object, copy_attributes: bool)**: saves an object from which we can reference its attributes, or copies its attributes to our attributes list.  
-    **\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: the centerpiece of the emulator, it allows you to call any function in the emulated class with any named and unnamed parameter, while automatically filling in any appropriate named parameters you stored.  
+The main class is **emulator.ClassEmulator**. It has 4 functions:  
+**\_\_init\_\_(self, target_class, \*\*kwargs)**: emulates the target class with any number of named function parameters.  
+      
+**save_params(self, \*\*kwargs)**: saves and updates any number of named function parameters in your emulator object.  
+      
+**save_reference_object(self, reference_object, copy_attributes: bool)**: saves an object from which we can reference its attributes, or copies its attributes to our attributes list.  
+      
+**\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: the centerpiece of the emulator, it allows you to call any function in the emulated class with any named and unnamed parameter, while automatically filling in any appropriate named parameters you stored.  
 
 ## Other files
 **example.py**: a functional example with explanations in the output.  
+  
 **simple_printer.py**: a short script that allows example.py to showcase that an imported module may be emulated directly.  
+  
 **sste_common_emulator.py**: a real-life inheritance example. Note that sste_common.py is proprietary and not provided here.  
+  
 **experimental_emulator.py**: an early version of emulator.py, which contains documentations of other libraries and code that may be useful.  
+  
 **steps.py**: a work in progress and a part of a broader plan to reimagine how my team uses the pyats testing framework. This is not directly related to classemulator. It is instead used to simplify a pattern of putting try-except in a step, which is used extensively in my team.  
+  
 **emulator_test.py**: a simplified version of a real-life pyats test. It combines classemulator, steps, and a singleton-facade I call Globals together to refactor my team's testing framework. Note that this test requires a yaml file, which is converted into test_data, as well as a testbed file. These files contain proprietary information and are not provided.  
 
 ## Requirements
