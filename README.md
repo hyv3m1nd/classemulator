@@ -29,12 +29,12 @@ The main class is **emulator/ClassEmulator**. It has 4 functions:
     **\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: the centerpiece of the emulator, it allows you to call any function in the emulated class with any named and unnamed parameter, while automatically filling in any appropriate named parameters you stored.  
 
 ## Other files
-example.py: a functional example with explanations in the output.  
-simple_printer.py: a short script that allows example.py to showcase that an imported module may be emulated directly.  
-sste_common_emulator.py: a real-life inheritance example. Note that sste_common.py is proprietary and not provided here.  
-experimental_emulator.py: an early version of emulator.py, which contains documentations of other libraries and code that may be useful.  
-steps.py: a work in progress and a part of a broader plan to reimagine how my team uses the pyats testing framework. This is not directly related to classemulator.  
-emulator_test.py: a pyats test that combines classemulator, steps, and a singleton-facade together to refactor my team's testing framework.  
+**example.py**: a functional example with explanations in the output.  
+**simple_printer.py**: a short script that allows example.py to showcase that an imported module may be emulated directly.  
+**sste_common_emulator.py**: a real-life inheritance example. Note that sste_common.py is proprietary and not provided here.  
+**experimental_emulator.py**: an early version of emulator.py, which contains documentations of other libraries and code that may be useful.  
+**steps.py**: a work in progress and a part of a broader plan to reimagine how my team uses the pyats testing framework. This is not directly related to classemulator.  
+**emulator_test.py**: a simplified version of a real-life pyats test. It combines classemulator, steps, and a singleton-facade together to refactor my team's testing framework. Note that this test requires a yaml file, which is converted into test_data, as well as a testbed file. These files contain proprietary information and are not provided.  
 
 ## Requirements
 This class is written in Python 3.9.13 or above. Backward compatibility with earlier versions may be possible but is not guaranteed.  
