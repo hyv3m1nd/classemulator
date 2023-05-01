@@ -26,7 +26,7 @@ The main class is **emulator/ClassEmulator**. It has 4 functions:
     **\_\_init\_\_(self, target_class, \*\*kwargs)**: emulates the target class with any number of named function parameters.  
     **save_params(self, \*\*kwargs)**: adds named function parameters.  
     **save_reference_object(self, reference_object, copy_attributes: bool)**: saves an object from which we can reference its attributes, or copies its attributes to our attributes list.  
-    **\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: allows you to call any function in the emulated class with any named and unnamed parameter.  
+    **\_\_getattr\_\_(self, name)(*args, \*\*kwargs)**: the centerpiece of the emulator, it allows you to call any function in the emulated class with any named and unnamed parameter, while automatically filling in any appropriate named parameters you stored.  
 
 ## Other files
 example.py: a functional example with explanations in the output.  
