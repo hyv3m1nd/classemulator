@@ -46,7 +46,8 @@ I have been working with a team that develops and uses its own library for route
 However, it could use better OOP structuring and software design. Of note, (1) functions repetitively call the same parameters that the end user does not edit, distracting programmers. (2) Due to the increasing number of device connection solutions such as Paramiko, Netmiko, and Napalm and the unique features they offer to handle different connection types and CLI outputs, as well as the increase in official vendor-supplied API's such as Open Ixia, a bridge design will be helpful for future development. This calls for a switch to OOP-based design. Furthermore, (3) some features such as automatic responses to CLI prompts currently reside in the overall test framework library but should be encapsulated in connection objects instead.  
    
 Unfortunately, it is impractical to redesign it, since it is also massive (8000+ lines per file), tightly coupled with the data it manages, and the foundation of over a decade's worth of proprietary code.  
-I designed classemulator as the start of a software design improvement. Its purpose is to move toward OOP by coupling object attributes with objects in a framework not designed with OOP in mind.  
+  
+I designed classemulator as the start of a software design improvement. Its purpose is to move toward OOP by coupling object attributes with the appropriate objects in a framework not designed with OOP in mind.  
   
 Started developing in April 2023
 
