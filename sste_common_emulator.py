@@ -1,6 +1,7 @@
 from class_emulator import ClassEmulator
 import sste_common
 from typing import Union, List
+import ast
 
 
 class SsteCommonEmulator(ClassEmulator):
@@ -14,6 +15,7 @@ class SsteCommonEmulator(ClassEmulator):
         1. script_args must be saved as a parameter.
         1. script_args['uut'] must be set using script_args['uut'] = sste_common._get_connection(devicename=...)
         """
+        commands = ast.literal_eval(commands)
         if isinstance(commands, str):
             commands = [commands]
         if isinstance(commands, list):
