@@ -41,9 +41,12 @@ This class is written in Python 3.9.13 or above. Backward compatibility with ear
 No outside library is required.  
 
 ## Back Story
-I have been working with a team that develops and uses its own library for router testing. The library has been vetted for handling complex use cases throughout the years. However, it could use better OOP structuring. Of note, functions repetitively call the same parameters that the end user does not edit, distracting programmers.  
-Unfortunately, it is impractical to redesign it, since it is also massive (8000+ lines per file) and tightly coupled with the data it manages.  
-I designed classemulator to hide redundant arguments that belong in OOP and help me focus on the function arguments that matter.  
+I have been working with a team that develops and uses its own library for router testing. The library has been vetted for handling complex use cases throughout the years.  
+  
+However, it could use better OOP structuring and software design. Of note, (1) functions repetitively call the same parameters that the end user does not edit, distracting programmers. (2) Due to the increasing number of device connection solutions such as Paramiko, Netmiko, and Napalm and the unique features they offer to handle different connection types and CLI outputs, as well as the increase in official vendor-supplied API's such as Open Ixia, a bridge design will be helpful for future development. This calls for a switch to OOP-based design. Furthermore, (3) some features such as automatic responses to CLI prompts currently reside in the overall test framework library but should be encapsulated in connection objects instead.  
+   
+Unfortunately, it is impractical to redesign it, since it is also massive (8000+ lines per file), tightly coupled with the data it manages, and the foundation of over a decade's worth of proprietary code.  
+I designed classemulator as the start of a software design improvement. Its purpose is to move toward OOP by coupling object attributes with objects in a framework not designed with OOP in mind.  
   
 Started developing in April 2023
 
