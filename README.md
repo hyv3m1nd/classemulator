@@ -1,5 +1,6 @@
 # Class Emulator
 This project seeks to cause object-like behavior in non-OOP libraries or enhance polymorphism in objects by hiding any repetitive function parameter.  
+The main file is **emulator.py**  
 It can emulate classes or objects.  
 
 ## Example
