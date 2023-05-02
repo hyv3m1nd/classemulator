@@ -19,6 +19,8 @@ commands can be either a command string or a list of commands.
 For backward compatibility purposes, it can also be a dictionary or the string form of the dictionary.
 
 script_args can also be passed into exec_commnads. Alternatively, it can be stored as a class attribute.
+
+@author Ben Hsieh
 """
 from class_emulator import ClassEmulator
 import sste_common
