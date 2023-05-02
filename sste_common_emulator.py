@@ -15,7 +15,11 @@ class SsteCommonEmulator(ClassEmulator):
         1. script_args must be saved as a parameter.
         1. script_args['uut'] must be set using script_args['uut'] = sste_common._get_connection(devicename=...)
         """
-        commands = ast.literal_eval(commands)
+        try:
+            commands = ast.literal_eval(commands)
+        except ValueError:
+            pass
+
         if isinstance(commands, str):
             commands = [commands]
         if isinstance(commands, list):
