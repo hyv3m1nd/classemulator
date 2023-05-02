@@ -1,3 +1,23 @@
+"""
+Emulates a library of functions called sste_common, replacing exec_commands().
+
+By default, exec_commands accepts two arguments: 
+    args, and
+    script_args.
+
+args is a dictionary that contains the command(s) we wish to run. It takes the form of {
+    "sste_commands": <a ist of string commands>
+}
+alternatively, args can be a string representation of the dictionary ('{"sste_commands": ["cmd_1", "cmd_2", ..., "cmd_N"]}').
+
+script_args contains meta-data that we do not touch.
+
+We will make exec_commands accept one parameter:
+    commands.
+
+commands can be either a command string or a list of commands.
+For backward compatibility purposes, it can also be a dictionary or the string form of the dictionary.
+"""
 from class_emulator import ClassEmulator
 import sste_common
 from typing import Union, List
