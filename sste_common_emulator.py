@@ -36,7 +36,7 @@ class SsteCommonEmulator(ClassEmulator):
     def exec_commands(self, commands: Union[list, str, dict], **kwargs):
         """
         Prerequisites: 
-        1. script_args must be saved as a parameter.
+        1. script_args must either be passed in or saved as an attribute.
         1. script_args['uut'] must be set using script_args['uut'] = sste_common._get_connection(devicename=...)
         """
         try:
