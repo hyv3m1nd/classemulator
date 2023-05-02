@@ -4,7 +4,8 @@ The main file is **emulator.py**
 It can emulate classes or objects.  
 
 ## Example
-""" We will attempt to emulate json.dumps() with indent, without passing indent into json.dumps()'s parameters."""  
+We will attempt to emulate json.dumps() with indent, without passing indent into json.dumps()'s parameters.  
+```python
 from emulator import ClassEmulator  
 import json  
 
@@ -15,12 +16,14 @@ data_to_print = {"speaker": "Jonathan", "message": "Hello!"}
 emulated_dumps_output = json_emulator.dumps(data_to_print)  
 
 print(emulated_dumps_output)  
-
-## Example Output
+```
+Output  
+```python
 {  
-&emsp;&emsp;&emsp;&emsp;"speaker": "Jonathan",  
-&emsp;&emsp;&emsp;&emsp;"message": "Hello!"  
+    "speaker": "Jonathan",  
+    "message": "Hello!"  
 }  
+```
 
 ## Explanation
 The main class is **emulator.ClassEmulator**. It has 4 functions:  
